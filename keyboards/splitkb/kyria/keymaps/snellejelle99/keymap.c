@@ -27,8 +27,8 @@ enum layers {
 // Aliases for readability
 #define QWERTY   DF(_QWERTY)
 
-#define SYM      MO(_SYM)
-#define NAV      MO(_NAV)
+#define SYM      QK_TRI_LAYER_UPPER
+#define NAV      QK_TRI_LAYER_LOWER
 #define FKEYS    MO(_FUNCTION)
 #define ADJUST   MO(_ADJUST)
 
