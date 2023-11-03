@@ -241,20 +241,69 @@ bool oled_task_user(void) {
 #ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
 
-    if (index == 0) {
-        if (clockwise) {
-			tap_code(KC_RGHT);
-        } else {
-            tap_code(KC_LEFT);
-        }
-    } else if (index == 1) {
-        if (clockwise) {
-            tap_code(KC_UP);
-        }
-		else {
-			tap_code(KC_DOWN);
-		}
-    }
+	switch (get_highest_layer(layer_state|default_layer_state)) {
+		case _QWERTY:
+			    if (index == 0) 
+				{
+					if (clockwise) 
+					{
+						tap_code16(LCTL(KC_RGHT));
+					} 
+					else 
+					{
+						tap_code16(LCTL(KC_LEFT));
+					}
+				} 
+				else if (index == 1) 
+				{
+					if (clockwise) 
+					{
+						tap_code(KC_UP);
+					}
+					else 
+					{
+						tap_code(KC_DOWN);
+					}
+				}
+			break;
+		case _NAV:
+			    if (index == 0) 
+				{
+					if (clockwise) 
+					{
+						tap_code(KC_MS_WH_RIGHT);
+					} 
+					else 
+					{
+						tap_code(KC_MS_WH_LEFT);
+					}
+				} 
+				else if (index == 1) 
+				{
+					if (clockwise) 
+					{
+						tap_code(KC_MS_WH_DOWN);
+					}
+					else 
+					{
+						tap_code(KC_MS_WH_UP);
+					}
+				}
+			break;
+		case _SYM:
+
+			break;
+		case _FUNCTION:
+
+			break;
+		case _ADJUST:
+
+			break;
+		default:
+
+	}
+
+
     return false;
 }
 #endif
