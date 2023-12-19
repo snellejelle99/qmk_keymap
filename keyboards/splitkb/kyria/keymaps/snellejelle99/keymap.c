@@ -272,11 +272,11 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 				{
 					if (clockwise) 
 					{
-						tap_code16(LCTL(KC_RGHT));
+						tap_code(KC_RGHT);
 					} 
 					else 
 					{
-						tap_code16(LCTL(KC_LEFT));
+						tap_code(KC_LEFT);
 					}
 				} 
 				else if (index == 1) 
